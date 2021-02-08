@@ -1,14 +1,15 @@
+using _Root.Scripts.Singletons;
 using UnityEngine;
 
 namespace _Root.Scripts.Managers
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : Singleton<GameManager>
     {
         [SerializeField] private UiManager uiManager = default;
-        
-        private void Awake()
+
+        protected override void Awake()
         {
-            // TODO: Load services and etc.
+            base.Awake();
         }
 
         private void Start()
