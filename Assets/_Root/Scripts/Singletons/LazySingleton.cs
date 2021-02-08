@@ -1,0 +1,68 @@
+﻿using UnityEngine;
+
+namespace _Root.Scripts.Singletons
+{
+    /// <summary>
+    /// This is lazy implementation of Singleton Design Pattern.
+    /// Instance is created when someone call Instance property.
+    /// </summary>
+    public abstract class LazySingleton<T> : MonoBehaviour where T : MonoBehaviour
+    {
+        // Flag used to mark singleton destruction.
+        private static bool singletonDestroyed = false;
+
+        // Reference to our singular instance.
+        private static T instance;
+        public static T Instance
+        {
+            get
+            {
+                if (singletonDestroyed) // If game is closing and we already destroyed instance, we shouldn't create new one!
+                {
+                    Debug.LogWarningFormat("[Singleton] Singleton was already destroyed by quiting game. Returning null");
+                    return null;
+                }
+
+                if (!instance) // If there is no object already, we should create new one.
+                {
+                    // Creating new game object with singleton component.
+                    // We don't need to assign reference here as Awake() will be called immediately after coponent is added.
+                    new GameObject(typeof(T).ToString()).AddComponent<T>();
+                }
+
+                return instance;
+            }
+        }
+
+        /// <summary>
+        /// Unity method called just after object creation - like constructor.
+        /// </summary>
+        protected virtual void Awake()
+        {
+            // If we don't have reference to instance and we didn't destroy instance yet than this object will take control
+            if (instance == null && !singletonDestroyed)
+            {
+                instance = this as T;
+            }
+            else if (instance != this) // Else this is other instance and we should destroy it!
+            {
+                Destroy(this);
+            }
+        }
+
+        /// <summary>
+        /// Unity method called before object destruction.
+        /// </summary>
+        protected virtual void OnDestroy()
+        {
+            if (instance != this) // Skip if instance is other than this object.
+            {
+                return;
+            }
+
+            singletonDestroyed = true;
+            instance = null;
+        }
+    }
+}
+
