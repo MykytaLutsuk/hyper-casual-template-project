@@ -24,6 +24,8 @@ namespace _Root.Scripts.UI.Screens
             
             CreateScreens();
             
+            DeactivateAllScreens();
+            
             if (_screens.Count > 0)
             {
                 _screens.ElementAt(FirstScreen).Activate();

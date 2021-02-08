@@ -15,7 +15,6 @@ namespace _Root.Scripts.UI.Screens
     // Add new value to enum when create new type of screen
     public enum ScreenType
     {
-        Undefined = 0,
-        MainMenu = 1
+        Undefined = 0
     }
 }
