@@ -21,8 +21,8 @@ namespace _Root.Scripts.Managers
 #if UNITY_EDITOR
         private void OnValidate()
         {
-            if (screensController == null) screensController = GetComponentInChildren<ScreensController>();
-            if (popUpsController == null) popUpsController = GetComponentInChildren<PopUpsController>();
+            if (screensController == null) screensController = FindObjectOfType<ScreensController>();
+            if (popUpsController == null) popUpsController = FindObjectOfType<PopUpsController>();
         }
 #endif
     }
