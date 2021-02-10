@@ -6,7 +6,7 @@ namespace _Root.Scripts.Managers
     {
         public void Init()
         {
-            
+            Debug.Log($"Game Manager initialized!");
         }
     }
 }

@@ -16,6 +16,8 @@ namespace _Root.Scripts.Managers
         {
             screensController.Init();
             popUpsController.Init();
+            
+            Debug.Log($"Ui Manager initialized!");
         }
 
 #if UNITY_EDITOR

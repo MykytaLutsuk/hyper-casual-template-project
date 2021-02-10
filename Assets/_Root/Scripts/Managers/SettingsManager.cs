@@ -15,6 +15,7 @@ namespace _Root.Scripts.Managers
 
         public void Init()
         {
+            Debug.Log($"Settings Manager initialized!");
         }
     }
 }
