@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c446f935038df047b171121c138023b, type: 3}
   m_Name: Sound
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 086202a00ba5e4c49b4fa350a90d9e8a, type: 3}
+  chooseRandomClip: 0
+  clip: {fileID: 0}
   clips: []
   byPassEffects: 0
   byPassListenerEffects: 0
