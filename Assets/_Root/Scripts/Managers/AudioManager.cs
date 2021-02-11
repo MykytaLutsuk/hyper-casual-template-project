@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using _Root.Scripts.Audio;
@@ -8,6 +9,8 @@ namespace _Root.Scripts.Managers
 {
     public class AudioManager : PersistentSingleton<AudioManager>
     {
+        [SerializeField] private AudioListener audioListener = default;
+        
         private List<AudioSource> _audioSources = new List<AudioSource>();
 
         public void PlayMusic(SoundData soundData)
@@ -68,6 +71,11 @@ namespace _Root.Scripts.Managers
             base.OnDestroy();
         }
 
+        private void MuteAudio(bool mute)
+        {
+            audioListener.enabled = !mute;
+        }
+
         private IEnumerator PlaySfxCor(AudioSource audioSource)
         {
             audioSource.Play();
@@ -89,5 +97,12 @@ namespace _Root.Scripts.Managers
             
             _audioSources.Clear();
         }
+
+#if UNITY_EDITOR
+        private void OnValidate()
+        {
+            audioListener = GetComponent<AudioListener>();
+        }
+#endif
     }
 }
