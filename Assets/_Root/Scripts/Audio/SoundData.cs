@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace _Root.Scripts.Sounds
+namespace _Root.Scripts.Audio
 {
     [CreateAssetMenu(fileName = "Sound", menuName = "Data/Sounds/Sound")]
     public class SoundData : ScriptableObject

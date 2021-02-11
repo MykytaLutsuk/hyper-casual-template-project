@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
-using _Root.Scripts.Sounds;
+using _Root.Scripts.Audio;
+using _Root.Scripts.Singletons;
 using UnityEngine;
 
 namespace _Root.Scripts.Managers
 {
-    public class SoundsManager : MonoBehaviour
+    public class AudioManager : PersistentSingleton<AudioManager>
     {
         private List<AudioSource> _audioSources = new List<AudioSource>();
-        
-        public void Init()
-        {
-            Debug.Log($"Sounds Manager initialized!");
-        }
 
         public void PlayMusic(SoundData soundData)
         {
@@ -60,6 +56,16 @@ namespace _Root.Scripts.Managers
             audioSource.loop = false;
 
             StartCoroutine(PlaySfxCor(audioSource));
+        }
+
+        protected override void Awake()
+        {
+            base.Awake();
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
         }
 
         private IEnumerator PlaySfxCor(AudioSource audioSource)

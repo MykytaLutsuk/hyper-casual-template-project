@@ -1,9 +1,9 @@
-using _Root.Scripts.Settings;
+using _Root.Scripts.Singletons;
 using UnityEngine;
 
-namespace _Root.Scripts.Managers
+namespace _Root.Scripts.Settings
 {
-    public class SettingsManager : MonoBehaviour
+    public class GlobalSettings : PersistentSingleton<GlobalSettings>
     {
         [SerializeField] private GameSettingsData gameSettingsData = default;
         [SerializeField] private MonetizationSettingsData monetizationSettingsData = default;
@@ -13,9 +13,14 @@ namespace _Root.Scripts.Managers
         public MonetizationSettingsData MonetizationSettingsData => monetizationSettingsData;
         public UiSettingsData UiSettingsData => uiSettingsData;
 
-        public void Init()
+        protected override void Awake()
         {
-            Debug.Log($"Settings Manager initialized!");
+            base.Awake();
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
         }
     }
 }

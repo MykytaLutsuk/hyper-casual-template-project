@@ -1,10 +1,11 @@
+using _Root.Scripts.Singletons;
 using _Root.Scripts.UI.PopUps;
 using _Root.Scripts.UI.Screens;
 using UnityEngine;
 
 namespace _Root.Scripts.Managers
 {
-    public class UiManager : MonoBehaviour
+    public class UiManager : Singleton<UiManager>
     {
         [SerializeField] private ScreensController screensController = default;
         [SerializeField] private PopUpsController popUpsController = default;
@@ -12,12 +13,22 @@ namespace _Root.Scripts.Managers
         public ScreensController ScreensController => screensController;
         public PopUpsController PopUpsController => popUpsController;
 
-        public void Init()
+        protected override void Awake()
+        {
+            base.Awake();
+            
+            Initialize();
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+        }
+
+        private void Initialize()
         {
             screensController.Init();
             popUpsController.Init();
-            
-            Debug.Log($"Ui Manager initialized!");
         }
 
 #if UNITY_EDITOR

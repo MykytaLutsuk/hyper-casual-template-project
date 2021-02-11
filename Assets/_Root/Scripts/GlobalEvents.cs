@@ -1,8 +1,8 @@
 using _Root.Scripts.Singletons;
 
-namespace _Root.Scripts.Managers
+namespace _Root.Scripts
 {
-    public class GameManager : Singleton<GameManager>
+    public class GlobalEvents : PersistentSingleton<GlobalEvents>
     {
         protected override void Awake()
         {

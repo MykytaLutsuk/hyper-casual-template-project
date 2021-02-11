@@ -2,13 +2,13 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace _Root.Scripts.Managers
+namespace _Root.Scripts
 {
-    public class BootManager : MonoBehaviour
+    public class Boot : MonoBehaviour
     {
         [SerializeField] private string sceneNameToLoad = default;
 
-        private void Awake()
+        private void Start()
         {
             StartCoroutine(LoadAsyncScene(sceneNameToLoad));
         }

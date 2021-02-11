@@ -9,7 +9,7 @@ namespace _Root.Scripts.Editor
         [MenuItem("Tools/Clear player data")]
         public static void ClearPlayerData()
         {
-            PlayerProfile.ClearPlayerData();
+            PlayerProfile.Instance.ClearPlayerData();
             Debug.Log($"Player data are cleared...");
         }
     }

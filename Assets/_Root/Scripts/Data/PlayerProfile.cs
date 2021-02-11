@@ -1,16 +1,17 @@
+using _Root.Scripts.Singletons;
 using UnityEngine;
 
 namespace _Root.Scripts.Data
 {
-    public class PlayerProfile : MonoBehaviour
+    public class PlayerProfile : PersistentSingleton<PlayerProfile>
     {
-        public static PlayerData PlayerData => _playerData;
-        private static PlayerData _playerData;
+        public PlayerData PlayerData => _playerData;
+        private PlayerData _playerData;
 
-        private static DataSerialization _dataSerialization;
+        private DataSerialization _dataSerialization;
 
         // Serializing data object to Json - string.
-        public static void SavePlayerData()
+        public void SavePlayerData()
         {
             var serializedData = JsonUtility.ToJson(_playerData);
             
@@ -18,7 +19,7 @@ namespace _Root.Scripts.Data
         }
 
         // Deserialization of string into data object again.
-        public static void LoadPlayerData()
+        public void LoadPlayerData()
         {
             string json = _dataSerialization.Load();
 
@@ -27,18 +28,23 @@ namespace _Root.Scripts.Data
             _playerData = deserializedData ?? new PlayerData();
         }
 
-        public static void ClearPlayerData()
+        public void ClearPlayerData()
         {
             _dataSerialization.Clear();
         }
-        
-        private void Awake()
+
+        protected override void Awake()
         {
-            DontDestroyOnLoad(this);
-            
+            base.Awake();
+
             Initialize();
         }
-        
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+        }
+
         private void Initialize()
         {
             // Can choose realization of serialization data
