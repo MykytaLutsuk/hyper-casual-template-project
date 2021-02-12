@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 64311818}
   m_Layer: 0
-  m_Name: '####### UI ###############################################'
+  m_Name: '####### UI #################################################################'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,7 +163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 109159671}
   m_Layer: 0
-  m_Name: '####### Core ###############################################'
+  m_Name: '####### Core ###############################################################'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -267,7 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 518658948}
   m_Layer: 0
-  m_Name: '####### Managers ###############################################'
+  m_Name: '####### Managers ###########################################################'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -564,7 +564,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1630634943}
   m_Layer: 0
-  m_Name: '####### Other ###############################################'
+  m_Name: '####### Other ###############################################################'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
