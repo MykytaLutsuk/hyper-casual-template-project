@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d24727f8b6046f046a385492cd317067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioListener: {fileID: 7975562771236133922}
+  musicPrefab: {fileID: 1242245580260325548, guid: 8e2bfb4bbce8d0e4fa0f4880c0249032, type: 3}
+  sfxPrefab: {fileID: 7653805695149231302, guid: d3aa6dd18f1638c46a883fbe083504b4, type: 3}
 --- !u!81 &7975562771236133922
 AudioListener:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sound
   m_EditorClassIdentifier: 
   chooseRandomClip: 0
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: 4feeede79a9299b429f6271f2f5c2be8, type: 3}
   clips: []
   byPassEffects: 0
   byPassListenerEffects: 0

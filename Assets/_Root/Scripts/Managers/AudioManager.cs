@@ -1,8 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using _Root.Scripts.Audio;
 using _Root.Scripts.Singletons;
+using Pooling;
 using UnityEngine;
 
 namespace _Root.Scripts.Managers
@@ -10,55 +9,28 @@ namespace _Root.Scripts.Managers
     public class AudioManager : PersistentSingleton<AudioManager>
     {
         [SerializeField] private AudioListener audioListener = default;
+
+        [SerializeField] private GameObject musicPrefab = default;
+        [SerializeField] private GameObject sfxPrefab = default;
         
-        private List<AudioSource> _audioSources = new List<AudioSource>();
+        private List<Music> _musics = new List<Music>();
 
         public void PlayMusic(SoundData soundData)
         {
-            GameObject soundObj = new GameObject {name = $"Music: {soundData.Clip.name}"};
-            AudioSource audioSource = soundObj.AddComponent<AudioSource>();
+            Music music = musicPrefab.Pool<Music>();
+            music.name = $"Music: {soundData.Clip.name}";
+            
+            music.Play(soundData);
 
-            audioSource.clip = soundData.ChooseRandomClip ? soundData.RandomClip : soundData.Clip;
-            
-            audioSource.bypassEffects = soundData.ByPassEffects;
-            audioSource.bypassListenerEffects = soundData.ByPassListenerEffects;
-            audioSource.bypassReverbZones = soundData.ByPassReverbZones;
-            audioSource.priority = soundData.Priority;
-            audioSource.volume = soundData.Volume;
-            audioSource.pitch = soundData.Pitch;
-            audioSource.panStereo = soundData.StereoPan;
-            audioSource.spatialBlend = soundData.SpatialBlend;
-            audioSource.reverbZoneMix = soundData.ReverbZoneMix;
-            
-            audioSource.playOnAwake = false;
-            audioSource.loop = true;
-            
-            audioSource.Play();
-            
-            _audioSources.Add(audioSource);
+            _musics.Add(music);
         }
 
         public void PlaySfx(SoundData soundData)
         {
-            GameObject soundObj = new GameObject {name = $"Sfx: {soundData.Clip.name}"};
-            AudioSource audioSource = soundObj.AddComponent<AudioSource>();
+            Sfx sfx = sfxPrefab.Pool<Sfx>();
+            sfx.name = $"Sfx: {soundData.Clip.name}";
 
-            audioSource.clip = soundData.ChooseRandomClip ? soundData.RandomClip : soundData.Clip;
-
-            audioSource.bypassEffects = soundData.ByPassEffects;
-            audioSource.bypassListenerEffects = soundData.ByPassListenerEffects;
-            audioSource.bypassReverbZones = soundData.ByPassReverbZones;
-            audioSource.priority = soundData.Priority;
-            audioSource.volume = soundData.Volume;
-            audioSource.pitch = soundData.Pitch;
-            audioSource.panStereo = soundData.StereoPan;
-            audioSource.spatialBlend = soundData.SpatialBlend;
-            audioSource.reverbZoneMix = soundData.ReverbZoneMix;
-            
-            audioSource.playOnAwake = false;
-            audioSource.loop = false;
-
-            StartCoroutine(PlaySfxCor(audioSource));
+            sfx.Play(soundData);
         }
 
         protected override void Awake()
@@ -76,26 +48,14 @@ namespace _Root.Scripts.Managers
             audioListener.enabled = !mute;
         }
 
-        private IEnumerator PlaySfxCor(AudioSource audioSource)
-        {
-            audioSource.Play();
-
-            while (audioSource.isPlaying)
-            {
-                yield return null;
-            }
-            
-            Destroy(audioSource.gameObject);
-        }
-
         private void RemoveAllMusic()
         {
-            foreach (var audioSource in _audioSources)
+            foreach (var music in _musics)
             {
-                Destroy(audioSource.gameObject);
+                music.Decommission();
             }
             
-            _audioSources.Clear();
+            _musics.Clear();
         }
 
 #if UNITY_EDITOR

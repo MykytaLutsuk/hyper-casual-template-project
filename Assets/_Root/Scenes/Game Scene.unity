@@ -693,6 +693,14 @@ PrefabInstance:
       propertyPath: sfxData
       value: 
       objectReference: {fileID: 11400000, guid: a9fb6b6fd43ba8448a02f861656b2961, type: 2}
+    - target: {fileID: 2547238136923883367, guid: e514f84d2139a554fb8606b3149c99b7, type: 3}
+      propertyPath: sfxPrefab
+      value: 
+      objectReference: {fileID: 7653805695149231302, guid: d3aa6dd18f1638c46a883fbe083504b4, type: 3}
+    - target: {fileID: 2547238136923883367, guid: e514f84d2139a554fb8606b3149c99b7, type: 3}
+      propertyPath: soundData
+      value: 
+      objectReference: {fileID: 11400000, guid: a9fb6b6fd43ba8448a02f861656b2961, type: 2}
     - target: {fileID: 2547238136923883368, guid: e514f84d2139a554fb8606b3149c99b7, type: 3}
       propertyPath: m_RootOrder
       value: 2
