@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace _Root.Scripts.Managers
 {
-    public class AudioManager : PersistentSingleton<AudioManager>
+    public class AudioManager : Singleton<AudioManager>
     {
         [SerializeField] private AudioListener audioListener = default;
 

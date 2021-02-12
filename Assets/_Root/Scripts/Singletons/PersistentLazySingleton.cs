@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Root.Scripts.MonoExtension;
+using UnityEngine;
 
 namespace _Root.Scripts.Singletons
 {
@@ -7,7 +8,7 @@ namespace _Root.Scripts.Singletons
     /// Instance is created when someone call Instance property.
     /// Additionally, with this implementation you have same instance when moving to different scene.
     /// </summary>
-    public class PersistentLazySingleton<T> : MonoBehaviour where T : MonoBehaviour
+    public class PersistentLazySingleton<T> : MonoCached where T : MonoBehaviour
     {
         // Flag used to mark singleton destruction.
         private static bool singletonDestroyed = false;

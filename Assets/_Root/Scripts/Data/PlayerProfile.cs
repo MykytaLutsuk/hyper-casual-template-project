@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace _Root.Scripts.Data
 {
-    public class PlayerProfile : PersistentSingleton<PlayerProfile>
+    public class PlayerProfile : Singleton<PlayerProfile>
     {
         public PlayerData PlayerData => _playerData;
         private PlayerData _playerData;

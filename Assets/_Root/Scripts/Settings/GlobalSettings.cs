@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace _Root.Scripts.Settings
 {
-    public class GlobalSettings : PersistentSingleton<GlobalSettings>
+    public class GlobalSettings : Singleton<GlobalSettings>
     {
         [SerializeField] private GameSettingsData gameSettingsData = default;
         [SerializeField] private MonetizationSettingsData monetizationSettingsData = default;

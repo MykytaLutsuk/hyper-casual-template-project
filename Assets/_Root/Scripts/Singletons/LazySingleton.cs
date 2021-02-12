@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Root.Scripts.MonoExtension;
+using UnityEngine;
 
 namespace _Root.Scripts.Singletons
 {
@@ -6,7 +7,7 @@ namespace _Root.Scripts.Singletons
     /// This is lazy implementation of Singleton Design Pattern.
     /// Instance is created when someone call Instance property.
     /// </summary>
-    public abstract class LazySingleton<T> : MonoBehaviour where T : MonoBehaviour
+    public abstract class LazySingleton<T> : MonoCached where T : MonoBehaviour
     {
         // Flag used to mark singleton destruction.
         private static bool singletonDestroyed = false;

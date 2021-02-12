@@ -1,12 +1,16 @@
 using System.Collections;
+using _Root.Scripts.MonoExtension;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace _Root.Scripts
 {
-    public class Boot : MonoBehaviour
+    public class Boot : MonoCached
     {
         [SerializeField] private string sceneNameToLoad = default;
+
+        [Range(0f, 5f)]
+        [SerializeField] private float loadTime = 0f;
 
         private void Start()
         {
@@ -22,11 +26,17 @@ namespace _Root.Scripts
 
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
 
+            asyncLoad.allowSceneActivation = false;
+
+            float timer = loadTime;
             // Wait until the asynchronous scene fully loads
-            while (!asyncLoad.isDone)
+            while (asyncLoad.progress < .9f || timer > 0f)
             {
+                timer -= Time.deltaTime;
                 yield return null;
             }
+            
+            asyncLoad.allowSceneActivation = true;
         }
     }
 }

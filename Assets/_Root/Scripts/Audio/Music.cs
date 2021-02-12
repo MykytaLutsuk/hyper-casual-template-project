@@ -1,9 +1,10 @@
+using _Root.Scripts.MonoExtension;
 using Pooling;
 using UnityEngine;
 
 namespace _Root.Scripts.Audio
 {
-    public class Music : MonoBehaviour, IGenericPoolElement
+    public class Music : MonoCached, IGenericPoolElement
     {
         [SerializeField] private AudioSource audioSource = default;
 

@@ -2,7 +2,7 @@ using _Root.Scripts.Singletons;
 
 namespace _Root.Scripts
 {
-    public class GlobalEvents : PersistentSingleton<GlobalEvents>
+    public class GlobalEvents : Singleton<GlobalEvents>
     {
         protected override void Awake()
         {

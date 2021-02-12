@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
+using _Root.Scripts.MonoExtension;
 using UnityEngine;
 
 namespace _Root.Scripts.UI.Screens
 {
-    public class ScreensController : MonoBehaviour
+    public class ScreensController : MonoCached
     {
         [SerializeField] private ScreensData screensData = default;
 

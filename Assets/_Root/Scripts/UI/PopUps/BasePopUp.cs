@@ -1,8 +1,9 @@
+using _Root.Scripts.MonoExtension;
 using UnityEngine;
 
 namespace _Root.Scripts.UI.PopUps
 {
-    public class BasePopUp : MonoBehaviour
+    public class BasePopUp : MonoCached
     {
         [SerializeField] private GameObject root = default;
 
