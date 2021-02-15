@@ -1,11 +1,10 @@
 using System.Collections;
-using _Root.Scripts.MonoExtension;
 using Pooling;
 using UnityEngine;
 
 namespace _Root.Scripts.Audio
 {
-    public class Sfx : MonoCached, IGenericPoolElement
+    public class Sfx : MonoBehaviour, IGenericPoolElement
     {
         [SerializeField] private AudioSource audioSource = default;
 

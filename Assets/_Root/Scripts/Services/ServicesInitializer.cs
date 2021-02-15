@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
-using _Root.Scripts.MonoExtension;
 using UnityEngine;
 
 namespace _Root.Scripts.Services
 {
-    public class ServicesInitializer : MonoCached
+    public class ServicesInitializer : MonoBehaviour
     {
         [SerializeField] private List<BaseService> services = new List<BaseService>();
         

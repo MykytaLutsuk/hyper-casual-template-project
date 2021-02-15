@@ -1,9 +1,8 @@
-using _Root.Scripts.MonoExtension;
 using UnityEngine;
 
 namespace _Root.Scripts.UI.Screens
 {
-    public class BaseScreen : MonoCached
+    public class BaseScreen : MonoBehaviour
     {
         [SerializeField] private GameObject root = default;
 

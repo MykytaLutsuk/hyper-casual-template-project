@@ -1,11 +1,10 @@
-using _Root.Scripts.MonoExtension;
 using TMPro;
 using UnityEngine;
 
 namespace _Root.Scripts.Utility
 {
     [RequireComponent(typeof(TMP_Text))]
-    public class FpsCounter : MonoCached
+    public class FpsCounter : MonoBehaviour
     {
         const float FpsMeasurePeriod = 0.5f;
         private int _mFpsAccumulator;

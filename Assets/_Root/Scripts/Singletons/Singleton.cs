@@ -1,12 +1,11 @@
-﻿using _Root.Scripts.MonoExtension;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace _Root.Scripts.Singletons
 {
     /// <summary>
     /// One of the simplest implementation of Singleton Design Pattern.
     /// </summary>
-    public abstract class Singleton<T> : MonoCached where T : MonoBehaviour
+    public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         // Reference to our singular instance.
         private static T instance;

@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using _Root.Scripts.MonoExtension;
 using UnityEngine;
 
 namespace _Root.Scripts.UI.PopUps
 {
-    public class PopUpsController : MonoCached
+    public class PopUpsController : MonoBehaviour
     {
         [SerializeField] private PopUpsData popUpsData = default;
         

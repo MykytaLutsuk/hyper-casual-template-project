@@ -1,11 +1,10 @@
 using System.Collections;
-using _Root.Scripts.MonoExtension;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace _Root.Scripts
 {
-    public class Boot : MonoCached
+    public class Boot : MonoBehaviour
     {
         [SerializeField] private string sceneNameToLoad = default;
 

@@ -1,8 +1,8 @@
-using _Root.Scripts.MonoExtension;
+using UnityEngine;
 
 namespace _Root.Scripts.Utility
 {
-    public class DontDestroyOnLoad : MonoCached
+    public class DontDestroyOnLoad : MonoBehaviour
     {
         private void Awake()
         {

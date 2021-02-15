@@ -1,11 +1,10 @@
-using _Root.Scripts.MonoExtension;
 using UnityEngine;
 
 namespace _Root.Scripts.Utility
 {
     [RequireComponent(typeof(MeshFilter))]
     [RequireComponent(typeof(MeshRenderer))]
-    public class CombineMeshes : MonoCached
+    public class CombineMeshes : MonoBehaviour
     {
         [SerializeField] private Material material = default;
     

@@ -1,8 +1,8 @@
-using _Root.Scripts.MonoExtension;
+using UnityEngine;
 
 namespace _Root.Scripts.Services
 {
-    public abstract class BaseService : MonoCached
+    public abstract class BaseService : MonoBehaviour
     {
         public abstract void Init();
     }

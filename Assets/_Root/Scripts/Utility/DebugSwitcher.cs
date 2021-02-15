@@ -1,9 +1,8 @@
-using _Root.Scripts.MonoExtension;
 using UnityEngine;
 
 namespace _Root.Scripts.Utility
 {
-    public class DebugSwitcher : MonoCached
+    public class DebugSwitcher : MonoBehaviour
     {
         private void Awake()
         {
