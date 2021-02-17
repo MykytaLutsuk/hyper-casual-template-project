@@ -1,3 +1,4 @@
+using System.IO;
 using _Root.Scripts.Data;
 using UnityEditor;
 using UnityEngine;
@@ -20,6 +21,22 @@ namespace _Root.Scripts.Editor
         {
             PlayerProfile.Instance.ClearPlayerData();
             Debug.Log($"Player data are cleared...");
+        }
+
+        [MenuItem("Tools/Take screenshoot")]
+        public static void TakeScreenshoot()
+        {
+            string path = "Screenshoots";
+
+            Directory.CreateDirectory(path);
+
+            int i = 0;
+            while (File.Exists(path + "/" + i + ".png"))
+            {
+                i++;
+            }
+            
+            ScreenCapture.CaptureScreenshot(path + "/" + i + ".png");
         }
     }
 }
