@@ -19,13 +19,16 @@
    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
    SOFTWARE.
 */
+
 using System.Collections.Generic;
-using UnityEngine;
-#if UNITY_EDITOR
 using UnityEditor;
+using UnityEngine;
+
+#if UNITY_EDITOR
+
 #endif
 
-namespace Pooling {
+namespace Plugins.zPooling {
    /// <summary>
    /// Class manager for all Generic Pooling procedures.
    /// </summary>

@@ -19,9 +19,10 @@
    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
    SOFTWARE.
 */
+
 using UnityEngine;
 
-namespace Pooling {
+namespace Plugins.zPooling {
    /// <summary>
    /// Generic pool element interface
    /// </summary>

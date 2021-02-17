@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Pooling {
+namespace Plugins.zPooling {
    /// <summary>
    /// Extension methods for pooling usage.
    /// Make sure to use at least once .Cache method to cache reference to the AutoPooler and GenericPooler 

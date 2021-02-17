@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _Root.Scripts.Singletons
+namespace Plugins.Singletons
 {
     /// <summary>
     /// One of the simplest implementation of Singleton Design Pattern.

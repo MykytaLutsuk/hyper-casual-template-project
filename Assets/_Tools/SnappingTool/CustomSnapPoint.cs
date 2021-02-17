@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace _Root.Scripts.Utility.SnappingTool
+namespace _Tools.SnappingTool
 {
     public class CustomSnapPoint : MonoBehaviour
     {

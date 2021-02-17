@@ -19,10 +19,11 @@
    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
    SOFTWARE.
 */
+
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Pooling {
+namespace Plugins.zPooling {
    /// <summary>
    /// Generic pool for base pool operations
    /// </summary>

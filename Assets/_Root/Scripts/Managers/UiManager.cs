@@ -1,6 +1,6 @@
-using _Root.Scripts.Singletons;
 using _Root.Scripts.UI.PopUps;
 using _Root.Scripts.UI.Screens;
+using Plugins.Singletons;
 using UnityEngine;
 
 namespace _Root.Scripts.Managers

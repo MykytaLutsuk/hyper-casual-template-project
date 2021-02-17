@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using _Root.Scripts.Audio;
-using _Root.Scripts.Singletons;
-using Pooling;
+using Plugins.Singletons;
+using Plugins.zPooling;
 using UnityEngine;
 
 namespace _Root.Scripts.Managers

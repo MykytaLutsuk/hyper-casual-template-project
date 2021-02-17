@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 
-namespace _Root.Scripts.Singletons
+namespace Plugins.Singletons
 {
     /// <summary>
     /// This is lazy implementation of Singleton Design Pattern.
     /// Instance is created when someone call Instance property.
+    /// Additionally, with this implementation you have same instance when moving to different scene.
     /// </summary>
-    public abstract class LazySingleton<T> : MonoBehaviour where T : MonoBehaviour
+    public abstract class PersistentLazySingleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         // Flag used to mark singleton destruction.
         private static bool singletonDestroyed = false;
@@ -28,6 +29,9 @@ namespace _Root.Scripts.Singletons
                     // Creating new game object with singleton component.
                     // We don't need to assign reference here as Awake() will be called immediately after coponent is added.
                     new GameObject(typeof(T).ToString()).AddComponent<T>();
+
+                    // And now we are making sure that object won't be destroy when we will move to other scene.
+                    DontDestroyOnLoad(instance);
                 }
 
                 return instance;
@@ -65,4 +69,3 @@ namespace _Root.Scripts.Singletons
         }
     }
 }
-

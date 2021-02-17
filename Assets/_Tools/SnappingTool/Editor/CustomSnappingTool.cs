@@ -1,10 +1,9 @@
-using System;
 using UnityEditor;
 using UnityEditor.EditorTools;
 using UnityEditor.Experimental.SceneManagement;
 using UnityEngine;
 
-namespace _Root.Scripts.Utility.SnappingTool.Editor
+namespace _Tools.SnappingTool.Editor
 {
     [EditorTool("Custom Snap Move", typeof(CustomSnap))]
     public class CustomSnappingTool : EditorTool

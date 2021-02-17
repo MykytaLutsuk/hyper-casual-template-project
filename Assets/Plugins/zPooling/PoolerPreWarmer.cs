@@ -19,10 +19,11 @@
    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
    SOFTWARE.
 */
+
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Pooling {
+namespace Plugins.zPooling {
    /// <summary>
    /// Behaviour to prepare objects for pooling, and also sustain pool at certain numbers of objects on scene
    /// transition

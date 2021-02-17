@@ -1,4 +1,4 @@
-using _Root.Scripts.Singletons;
+using Plugins.Singletons;
 
 namespace _Root.Scripts
 {

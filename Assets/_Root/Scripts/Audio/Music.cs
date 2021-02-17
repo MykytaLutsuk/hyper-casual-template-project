@@ -1,4 +1,4 @@
-using Pooling;
+using Plugins.zPooling;
 using UnityEngine;
 
 namespace _Root.Scripts.Audio

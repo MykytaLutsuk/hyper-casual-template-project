@@ -24,7 +24,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Pooling {
+namespace Plugins.zPooling {
     /// <summary>
     /// Pooler that performs check (.IsAvailable) operations on it's controlled IGenericPoolElements and
     /// returns them to pool if they are available.

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Root.Scripts.Utility
+namespace _Tools
 {
     [RequireComponent(typeof(MeshFilter))]
     [RequireComponent(typeof(MeshRenderer))]
