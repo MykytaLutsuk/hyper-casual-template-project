@@ -1,5 +1,7 @@
+using System;
 using UnityEditor;
 using UnityEditor.EditorTools;
+using UnityEditor.Experimental.SceneManagement;
 using UnityEngine;
 
 namespace _Root.Scripts.Utility.SnappingTool.Editor
@@ -10,6 +12,10 @@ namespace _Root.Scripts.Utility.SnappingTool.Editor
         public Texture2D ToolIcon = default;
         public float SnapDistance = .5f;
 
+        private Transform oldTarget;
+        private CustomSnapPoint[] allPoints;
+        private CustomSnapPoint[] targetPoints;
+
         public override GUIContent toolbarIcon =>
             new GUIContent
             {
@@ -17,10 +23,26 @@ namespace _Root.Scripts.Utility.SnappingTool.Editor
                 text = "Custom Snap Move Tool"
             };
 
+        private void OnEnable()
+        {
+            
+        }
+
 #if UNITY_EDITOR
         public override void OnToolGUI(EditorWindow window)
         {
             Transform targetTransform = ((CustomSnap) target).transform;
+
+            if (targetTransform != oldTarget)
+            {
+                PrefabStage prefabStage = PrefabStageUtility.GetPrefabStage(targetTransform.gameObject);
+
+                allPoints = prefabStage != null ? prefabStage.prefabContentsRoot.GetComponentsInChildren<CustomSnapPoint>() : FindObjectsOfType<CustomSnapPoint>();
+                
+                targetPoints = targetTransform.GetComponentsInChildren<CustomSnapPoint>();  
+
+                oldTarget = targetTransform;
+            }
 
             EditorGUI.BeginChangeCheck();
             Vector3 newPosition = Handles.PositionHandle(targetTransform.position, Quaternion.identity);
@@ -34,8 +56,6 @@ namespace _Root.Scripts.Utility.SnappingTool.Editor
 
         private void MoveWithSnapping(Transform targetTransform, Vector3 newPosition)
         {
-            CustomSnapPoint[] allPoints = FindObjectsOfType<CustomSnapPoint>();
-            CustomSnapPoint[] targetPoints = targetTransform.GetComponentsInChildren<CustomSnapPoint>();
 
             Vector3 bestPosition = newPosition;
             float closestDistance = float.PositiveInfinity;
@@ -46,6 +66,8 @@ namespace _Root.Scripts.Utility.SnappingTool.Editor
 
                 foreach (CustomSnapPoint ownPoint in targetPoints)
                 {
+                    if (ownPoint.Type != point.Type) continue;
+
                     Vector3 targetPos = point.transform.position - (ownPoint.transform.position - targetTransform.position);
                     float distance = Vector3.Distance(targetPos, newPosition);
 
