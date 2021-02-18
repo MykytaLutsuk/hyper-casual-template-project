@@ -22,7 +22,7 @@ namespace _Tools.ReplaceTool.Editor
         Vector2 selectObjectScrollPosition;
 
         // Register menu item to open Window.
-        [MenuItem("Custom Tools/Replace with Prefab")]
+        [MenuItem("Tools/Replace with Prefab")]
         /// <summary>
         /// Method used to open ReplaceToolWindow.
         /// </summary>
