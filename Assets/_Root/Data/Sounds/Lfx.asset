@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763f219b630feee488c5e16bbd802686, type: 3}
   m_Name: Lfx
   m_EditorClassIdentifier: 
+  id: Lfx
+  clip: {fileID: 0}

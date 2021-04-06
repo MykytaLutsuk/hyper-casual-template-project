@@ -9,6 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b787af19505714db8e17a8c3fe4e3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 763f219b630feee488c5e16bbd802686, type: 3}
   m_Name: Sfx
   m_EditorClassIdentifier: 
+  id: Sfx
+  clip: {fileID: 0}
